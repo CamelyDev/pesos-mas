@@ -15,12 +15,12 @@ def multiPrint(lista_texto):
         print(f"{lista[i][2]}{lista[i][1]}{lista[i][0]}{term.normal}")
 
 def limpiar():
-    return f"{term.home}{term.on_black}{term.clear_eos}"
+    return f"{term.home}{term.on_black}{term.clear}{term.home}"
 
 def printWarn(texto):
     multiPrint(
         [
-            ["ATENCIÓN",term.red,limpiar()],
+            ["ALERTA",term.red,limpiar()],
             [str(texto),term.bright_red,None],
             ["Presiona ENTER para continuar...",term.white,term.blink],
         ]
@@ -47,6 +47,20 @@ def introMenu():
     )
     op=input()
     return op
+
+def cargar_datos():
+    with open("data.json","r") as file:
+        data = json.load(file)
+    return data
+    
+def guardar_datos(data):
+    try:
+        with open("data.json","w") as file:
+            json.dump(data, file)
+        return True
+    except:
+        printWarn("No se ha podido guardar los datos al archivo local.")
+        return False
 
 def menu_principal():
     op = -1

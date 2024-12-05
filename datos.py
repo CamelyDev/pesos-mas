@@ -1,8 +1,8 @@
 class Datos:
-    def __init__(self, sueldo, ahorro):
-        self.__sueldo = sueldo
+    def __init__(self):
+        self.__sueldo = 0
         self.__gastos = []
-        self.__ahorro = ahorro
+        self.__ahorro = 0
 
     def get_sueldo(self):
         return self.__sueldo
